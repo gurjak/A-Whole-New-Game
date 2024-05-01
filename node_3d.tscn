@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlq5me0ayvvi3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_l1vvc"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0n6n0"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(-0.384872, 0.546016, -0.744137, -0.905691, -0.378697, 0.190557, -0.177755, 0.747298, 0.640272, -0.102416, 1.38736, -0.150477)
+mesh = SubResource("BoxMesh_l1vvc")
+
+[node name="Skeleton3D" type="Skeleton3D" parent="CharacterBody3D/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.44217)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("ConvexPolygonShape3D_0n6n0")
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
